@@ -63,6 +63,12 @@ class CategoryController extends Categories
         $this->delete($id);
     }
 
+    public function showCategoryBySlug($slug)
+    {
+        $category = $this->getCategoryBySlug($slug);
+        return $category;
+    }
+
     public function categoryHasPost($id)
     {
         $results = $this->hasPost($id);

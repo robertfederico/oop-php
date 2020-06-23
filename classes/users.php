@@ -1,47 +1,7 @@
 <?php
-// takes care of all the database connection
+// takes care of all the database query
 class Users extends Dbh
 {
-    // examples
-    // public function getAllUser()
-    // {
-    //     $sql = "SELECT * FROM users ORDER BY users_id DESC";
-    //     $stmt = $this->connect()->query($sql);
-    //     $names = $stmt->fetchAll();
-    //     return $names;
-    // }
-
-    // protected function getUser($fname)
-    // {
-    //     $sql = "SELECT * FROM users WHERE user_firstname = ?";
-    //     $stmt = $this->connect()->prepare($sql);
-    //     $stmt->execute([$fname]);
-    //     $results = $stmt->fetchAll();
-    //     return $results;
-    // }
-
-    // protected function setUser($fname, $lname, $dob)
-    // {
-    //     $sql = "INSERT INTO users(user_firstname,user_lastname,user_dob)VALUES(?,?,?)";
-    //     $stmt = $this->connect()->prepare($sql);
-    //     $stmt->execute([$fname, $lname, $dob]);
-    // }
-
-    // protected function delete($id)
-    // {
-    //     $sql = "DELETE FROM users WHERE users_id = ?";
-    //     $stmt = $this->connect()->prepare($sql);
-    //     $stmt->execute([$id]);
-    // }
-
-    // protected function update($fname, $lname, $dob, $id)
-    // {
-    //     $sql = "UPDATE users SET user_firstname = ? ,user_lastname = ?,user_dob = ? WHERE users_id = ?";
-    //     $stmt = $this->connect()->prepare($sql);
-    //     $stmt->execute([$fname, $lname, $dob, $id]);
-    // }
-
-    //*/ start here 
     public function getRegisteredUsers()
     {
         $sql = "SELECT * FROM tbl_users WHERE user_role != 'admin'  ORDER BY id DESC";
@@ -77,13 +37,6 @@ class Users extends Dbh
         $results = $stmt->fetchAll();
         return $results;
     }
-
-    // public function GetTableData($query)
-    // {
-    //     $stmt = $this->connect()->query($query);
-    //     $results = $stmt->fetchAll();
-    //     return $results;
-    // }
 
     protected function saveUser($name, $email, $password, $role, $dateRegistered)
     {

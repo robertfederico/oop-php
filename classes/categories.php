@@ -77,7 +77,15 @@ class Categories extends Dbh
         $stmt->execute([$title, $slug, $categoryId]);
     }
 
-    // create function to check if category has a post
+    public function getCategoryBySlug($slug)
+    {
+        $sql = "SELECT * FROM tbl_categories  WHERE slug = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$slug]);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
     protected function hasPost($id)
     {
         $sql = "SELECT * FROM tbl_categories INNER JOIN 

@@ -3,13 +3,6 @@
 class UserController extends Users
 {
 
-
-    // public function getResults($query)
-    // {
-    //     $results = $this->GetTableData($query);
-    //     return $results;
-    // }
-
     public function getAllUsers()
     {
         $names = $this->getRegisteredUsers();

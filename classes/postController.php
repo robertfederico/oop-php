@@ -55,6 +55,12 @@ class PostController extends Posts
         return $post;
     }
 
+    public function showPostByCategory($catId)
+    {
+        $posts = $this->getPostByCategory($catId);
+        return $posts;
+    }
+
     public function deletePost($id)
     {
         $this->delete($id);

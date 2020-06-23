@@ -79,6 +79,15 @@ class Posts extends Dbh
         return $result;
     }
 
+    public function getPostByCategory($catId)
+    {
+        $sql = "SELECT * FROM tbl_posts  WHERE category_id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$catId]);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
     public function delete($id)
     {
         $sql = "DELETE FROM tbl_posts WHERE id = ?";
