@@ -16,7 +16,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link"
-                        href="categories.php/<?php echo $category['slug'] ?>"><?php echo $category['name'] ?></a>
+                        href="index.php?source=categories&slug=<?php echo $category['slug'] ?>"><?php echo $category['name'] ?></a>
                 </li>
                 <?php endforeach; ?>
             </ul>

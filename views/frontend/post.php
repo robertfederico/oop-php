@@ -1,6 +1,7 @@
 <?php
 $categoryCont = new CategoryController();
 $postContr = new PostController();
+$userContr = new UserController();
 
 if (isset($_GET['slug'])) {
     $slug = $_GET['slug'];
@@ -9,8 +10,8 @@ if (isset($_GET['slug'])) {
 
 <?php
     foreach ($post as $singlePost) :
-
-
+        $author = $userContr->getUsers($singlePost['user_id']);
+        $category = $categoryCont->getCategoryName($singlePost['category_id']);
     ?>
 
 <div class="page-header">
@@ -19,11 +20,12 @@ if (isset($_GET['slug'])) {
     </div>
     <div class="header-description">
         <div class="post-category">
-            <a href="">Animals</a>
+            <a href=""><?php echo $category; ?></a>
         </div>
         <h1><?php echo $singlePost['title']; ?></h1>
         <ul class="post-meta">
-            <li><a href="#">Jacquie Smith</a></li>
+            <li><a href="#"><?php echo $author; ?></a>
+            </li>
             <li><?php echo date("M j Y", strtotime($singlePost['created_at'])); ?></li>
         </ul>
     </div>

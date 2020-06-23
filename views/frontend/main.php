@@ -40,7 +40,7 @@
 </section>
 <section class="section-stories">
     <div class="row">
-        <div class="col-md-8 stories-panel">
+        <div class="col-md-8 stories-panel shadow">
             <div class="row">
                 <?php
                 $postContr = new PostController();
@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="categories-panel">
+            <div class="categories-panel shadow">
                 <div class="panel-title">
                     <h2 class="">Categories</h2>
                 </div>
@@ -71,7 +71,7 @@
                         foreach ($categories as $category) :
                         ?>
                         <li class="list-group-item"><a
-                                href="categories.php/<?php echo $category['slug'] ?>"><?php echo $category['name'] ?></a>
+                                href="index.php?source=categories&slug=<?php echo $category['slug'] ?>"><?php echo $category['name'] ?></a>
                         </li>
                         <?php endforeach; ?>
                     </ul>
