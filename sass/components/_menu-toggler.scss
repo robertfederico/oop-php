@@ -1,0 +1,35 @@
+
+#navbar{
+
+    & #menu-toggle{
+        outline: 0;
+        font-size: 1.25rem;
+        line-height: 1;
+        background-color: transparent;
+        border: 1px solid transparent;
+        color:#555555;
+        border-radius: 50%;
+        height: 41px;
+        min-width: 41px;
+        width: 41px;
+        transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1);
+    
+        &:hover {
+            box-shadow: 0 14px 26px -12px hsla(0,0%,60%,.42), 0 4px 23px 0 rgba(0,0,0,.12), 0 8px 10px -5px hsla(0,0%,60%,.2);
+        }
+
+        &:focus {
+            box-shadow: 0 14px 26px -12px hsla(0,0%,60%,.42), 0 4px 23px 0 rgba(0,0,0,.12), 0 8px 10px -5px hsla(0,0%,60%,.2);
+        }
+
+        &.active {
+            outline: none !important;
+            border: none !important;
+            box-shadow: 0 14px 26px -12px hsla(0,0%,60%,.42), 0 4px 23px 0 rgba(0,0,0,.12), 0 8px 10px -5px hsla(0,0%,60%,.2);
+        }
+
+        & i {
+            text-align: center;
+        }
+    }
+}

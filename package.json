@@ -1,0 +1,29 @@
+{
+  "name": "oop-php-blog-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "webpack",
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "author": "Robert Federico",
+  "license": "ISC",
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^19.0.2",
+    "bootstrap": "^4.5.0",
+    "datatables.net-bs4": "^1.10.21",
+    "jquery": "^3.5.1",
+    "node-sass": "^4.14.1",
+    "popper.js": "^1.16.1",
+    "sweetalert2": "^9.15.1"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "imports-loader": "^0.8.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}

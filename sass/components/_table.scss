@@ -1,0 +1,116 @@
+.dataTables_wrapper {
+
+    & .dataTables_length{
+        label {
+            font-weight: 300 !important;
+        }
+    }
+
+    & .table{
+        & thead{
+            vertical-align: middle;
+    
+            & tr th {
+                font-size: 1.063rem;
+                border-bottom: 2px solid rgba(0,0,0,.06);
+                font-weight: 300;
+            }
+        }
+    
+        & tbody{
+            & tr td{
+                border-top: none;
+                font-weight: 300;
+                border-bottom: 2px solid rgba(0,0,0,.06);
+
+                & .btn {
+                    box-shadow: none;
+                    border: 0;
+                    font-size: 1.2rem;
+                    font-weight: 400;
+                    transition: all .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1);
+                
+                    &:hover {
+                        background-color: rgba(0,0,0,.01);
+                        box-shadow: 0 2px 2px 0 hsla(0,0%,60%,.14), 0 3px 1px -2px hsla(0,0%,60%,.2), 0 1px 5px 0 hsla(0,0%,60%,.12);
+                    }
+                }
+
+                & .btn-delete {
+                    background-color: transparent;
+                    color: #f44336;
+
+                    &:focus {
+                        background-color: transparent;
+                        outline: none;
+                        border: none;
+                        color: #f44336;
+                        box-shadow: 0 14px 26px -12px rgba(244,67,54,.42), 0 4px 23px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(244,67,54,.2);
+                    }
+                }
+
+                & .btn-edit {
+                    color: #ff9800;
+                    background-color: transparent;
+
+                    &:focus { 
+                        background-color: transparent;
+                        outline: none;
+                        border: none;
+                        color: #ff9800;
+                        box-shadow: 0 2px 2px 0 rgba(255,152,0,.14), 0 3px 1px -2px rgba(255,152,0,.2), 0 1px 5px 0 rgba(255,152,0,.12);
+                    }
+                }
+
+                & .btn-view {
+                    background-color: transparent;
+                    color: #00bcd4;
+
+                    &:focus {
+                        background-color: transparent;
+                        outline: none;
+                        border: none;
+                        color: #00bcd4;
+                        box-shadow: 0 14px 26px -12px rgba(0,188,212,.42), 0 4px 23px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,188,212,.2);
+                    }
+                }
+            }
+        }
+    }
+    
+    & .dataTables_info {
+        padding-top: .85em;
+        white-space: nowrap;
+        font-weight: 300;
+    }
+
+    & .pagination {
+        
+        & .page-item {
+    
+            & .page-link{
+                border: none;
+                text-transform: uppercase;
+                font-weight: 300;
+                cursor: pointer;
+    
+                &:focus{
+                    outline: none;
+                    border: none;
+                    box-shadow: none;
+                }
+            }
+    
+            &.active .page-link{
+                background-color: #9c27b0 !important;
+                border-color: #9c27b0 !important;
+                color: #fff !important;
+                box-shadow: 0 4px 5px 0 rgba(156,39,176,.14), 0 1px 10px 0 rgba(156,39,176,.12), 0 2px 4px -1px rgba(156,39,176,.2);
+            }
+        }
+    }
+}
+
+
+
+

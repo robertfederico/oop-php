@@ -1,0 +1,40 @@
+<?php
+
+include '../autoloader/autoloader.php';
+
+$request = $_REQUEST;
+$userContr = new UserController();
+
+$users = $userContr->getAllUsers();
+
+$totalData = $userContr->getTotal();
+$totalFilter = $totalData;
+
+if (!empty($request['search']['value'])) {
+    $searchVal = $request['search']['value'];
+
+    $search = $userContr->searchRes($searchVal);
+    $totalData = $search;
+}
+
+$data = [];
+
+foreach ($users as $k => $user) {
+    $subdata = [];
+    $subdata[] =  ++$k;
+    $subdata[] = $user['user_name'];
+    $subdata[] = $user['user_email'];
+    $subdata[] = $user['user_role'];
+    $subdata[] = $user['date_registered'];
+
+    $data[] = $subdata;
+}
+
+$json_data = array(
+    "draw" => intval($request['draw']),
+    "recordsTotal" => intval($totalData),
+    "recordsFiltered" => intval($totalFilter),
+    "data" => $data
+);
+
+echo json_encode($json_data);

@@ -1,0 +1,76 @@
+body {
+    background-color: #eef0f1;
+}
+#main-content {
+    margin-top: 76px;
+    padding: 0;
+    margin: 0;
+}
+header {
+    position: fixed; 
+    top: 0;
+    z-index: 1400;
+    width: 100%;
+    background: #fff;
+
+    & .navbar {
+        padding: 1rem 1rem 1rem 3rem; 
+        background-color: transparent;
+
+        & form .searchbar {
+            position: relative;
+            height: 40px;
+            background-color: #ffffff;
+
+            & .search_input{
+                color: #262626;
+                border: 0;
+                outline: 0;
+                background: none;
+                width: 0;
+                padding: 0 18px;
+                height: 40px;
+                transition: all 0.4s linear;
+                border-radius: 5px;
+                position: absolute;
+                right: 0;
+                width: 420px; 
+                border: 1px solid #b5bdc4;
+            } 
+
+            & .search_icon {
+                height: 40px;
+                width: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                color:#b5bdc4;
+                text-decoration:none;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+            
+        }
+        
+        & ul li a {
+            color: #262626 !important;
+            font-size: 1rem;
+            font-weight: 400;
+            display: block; 
+            letter-spacing: 1px;
+            border-bottom: 2px solid transparent;
+            transition: border-bottom .3s linear;
+
+            &:hover {
+                border-bottom: 2px solid #262626;
+            }
+        
+            &.active {
+                border-bottom: 2px solid #262626;
+            }
+        }
+    }
+}
+

@@ -1,0 +1,65 @@
+
+.auth-page { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+        & .card-wrapper {
+            width: 400px;
+            position: relative;
+    
+            & .card {
+                border-color: transparent;
+                border: 1px solid rgba(0,0,0,.04);
+                box-shadow: 0 6px 12px rgba(0,0,0,.05);
+                padding: 10px;
+    
+                & .card-title {
+                    text-align: center;
+                    margin-bottom: 1.8rem;
+                }
+    
+                & .form-control{
+                    width: 100%;
+                    border-radius: 30px;
+                    padding: 20px 28px;
+    
+                }
+            
+                & .form-group label {
+                    width: 100%;
+                    color: rgba(0,0,0,.6);
+                }
+            
+                & .btn.btn-block {
+                    padding: 12px 10px;
+                    border-radius: 30px;
+                    outline: 0;
+                }
+    
+                @media screen and (max-width: 320px) {
+                    padding: 0;
+                }
+    
+                @media screen and (max-width: 425px) {
+                    width: 90%;
+                    margin: 0 auto;
+                }
+    
+            }
+        }
+        
+        & .footer {
+            margin: 40px 0;
+            color: #888;
+            text-align: center;
+        }
+    }
+
+
+
+
+  
+
+
