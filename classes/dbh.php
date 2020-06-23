@@ -1,10 +1,10 @@
 <?php
 class Dbh
 {
-    private $host = "localhost";
-    private $user = "root";
-    private $pwd = "Unknown1599";
-    private $dbName = "db_oop";
+    private $host = "";
+    private $user = "";
+    private $pwd = "";
+    private $dbName = "";
 
 
 
