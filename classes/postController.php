@@ -61,6 +61,12 @@ class PostController extends Posts
         return $posts;
     }
 
+    public function showPostByUser($userId)
+    {
+        $posts = $this->getPostByUser($userId);
+        return $posts;
+    }
+
     public function deletePost($id)
     {
         $this->delete($id);

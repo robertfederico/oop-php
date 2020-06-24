@@ -33,12 +33,16 @@
         left: 30%;
         transform: translateX(-30%);
         padding-bottom: 2rem;
-       
 
         h1 {
             font-size: 3rem;
             line-height: 1.2;
             color: #fff;
+
+            @include respond(phone) {
+                font-size: 1.5rem;
+                line-height: 1.1;
+            }
         }
 
         
@@ -100,15 +104,34 @@
 .post-content{
     margin: 4rem 0;
 
+    @include respond(phone) {
+        margin: 2rem 0;
+    }
+
     & .post-body{
         padding: 0 4.5rem;
         color: #262626;
+
+        @include respond(phone) {
+            padding: 0 2rem;
+        }
 
         p {
             color: #262626;
             font-size: 1.1rem;
             line-height: 1.6; 
             text-align: justify;
+
+            @include respond(phone) {
+                font-size: 1rem;
+                text-align: left;
+            }
+        }
+
+        h1, h2, h3 {
+            @include respond(phone) {
+                font-size: 1.2rem;
+            }
         }
     }
 }

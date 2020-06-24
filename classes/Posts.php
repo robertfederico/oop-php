@@ -88,6 +88,16 @@ class Posts extends Dbh
         return $result;
     }
 
+
+    public function getPostByUser($userId)
+    {
+        $sql = "SELECT * FROM tbl_posts  WHERE `user_id` = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$userId]);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
     public function delete($id)
     {
         $sql = "DELETE FROM tbl_posts WHERE id = ?";

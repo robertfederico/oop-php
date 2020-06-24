@@ -38,7 +38,7 @@ if (isset($_GET['slug'])) :
                 <?php endforeach;
                     } else {
                         ?>
-                <div class="col-md-12 feature-post">
+                <div class="col-md-12 feature-post result-bx">
                     <div class="text-center">
                         <h1 class="font-weight-normal"><span class="fas fa-frown text-primary"></span> Sorry, no posts
                             yet.</h1>

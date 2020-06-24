@@ -18,7 +18,7 @@
                 <?php endforeach;  ?>
             </div>
         </div>
-        <div class="col-lg-6 col-md-6 col-xs-12 p-0">
+        <div class="col-lg-6 col-md-6 p-0">
             <div class="row card-right">
                 <?php
                 $postContr = new PostController();
@@ -41,6 +41,9 @@
 <section class="section-stories">
     <div class="row">
         <div class="col-md-8 stories-panel shadow">
+            <div class="stories-title">
+                <h2 class="m-0">Recent Posts</h2>
+            </div>
             <div class="row">
                 <?php
                 $postContr = new PostController();

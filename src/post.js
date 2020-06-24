@@ -27,7 +27,7 @@ $(document).ready(function () {
     const defaultBtn = document.querySelector("#default-btn");
     const cancelBtn = document.querySelector("#cancel-button");
     const customBtn = document.querySelector("#custom-btn");
-    const img = document.querySelector("img");
+    const img = document.querySelector(".img");
     let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
 
     $("#custom-btn").on("click", function (e) {
@@ -89,12 +89,22 @@ $(document).ready(function () {
                     $('#savePost').attr('disabled', 'disabled');
                 },
                 success: function (msg) {
-                    if (msg == 'success') {
-                        Toast.fire({
+                    if (msg == 'admin') {
+                        Swal.fire({
                             icon: 'success',
-                            title: 'Post created Successfully',
+                            title: "Success",
+                            text: 'Post created Successfully',
                             onClose: function () {
                                 window.location.replace("./posts.php");
+                            }
+                        });
+                    } else if (msg == 'author') {
+                        Swal.fire({
+                            icon: 'success',
+                            title: "Success",
+                            text: 'Post created Successfully',
+                            onClose: function () {
+                                window.location.replace("./index.php");
                             }
                         });
                     }
@@ -216,5 +226,112 @@ $(document).ready(function () {
                 }
             });
         }
+    });
+
+    // for regular users
+    $('.editMyPost').on('click', function (e) {
+        e.preventDefault();
+        let postId = $(this).data("id");
+        let user = $(this).data("user");
+        let categoryId = $(this).data("category");
+        let postTitle = $(this).data("title");
+        let postImg = $(this).data("image");
+        let postContent = $(this).data("content");
+
+        $("#authorName").val(user);
+        $("#postCategory").val(categoryId);
+        $("#postTitle").val(postTitle);
+        editor2.setData(postContent);
+        $("#postId").val(postId);
+        $("#image").attr("src", "../assets/bg-img/" + postImg);
+
+        $("#postModal").modal("show");
+    });
+
+    $("#updateMyPost").on("submit", function (e) {
+        e.preventDefault();
+        let form = $(this);
+        let formData = new FormData(form[0]);
+        formData.append('post_content', editor2.getData());
+
+        if (form[0].checkValidity() === false) {
+            form.addClass('was-validated');
+
+            event.preventDefault();
+            event.stopPropagation();
+        } else {
+            form.addClass('was-validated');
+
+            $.ajax({
+                url: '../controller/update-post.php',
+                method: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function () {
+                    $('#updatePost').attr('disabled', 'disabled');
+                    $(".modal-body").css('opacity', '.5');
+                },
+                success: function (msg) {
+                    if (msg == 'success') {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: 'Post Updated Successfully.',
+                            onClose: function () {
+                                window.location.reload();
+                            }
+                        });
+                    } else {
+                        Toast.fire({
+                            icon: 'error',
+                            title: 'An error occured.'
+                        });
+                    }
+                    $('#updatePost').removeAttr('disabled');
+                    $(".modal-body").css('opacity', '');
+                }
+            });
+        }
+    });
+
+    $('.deleteMyPost').on('click', function (e) {
+        e.preventDefault()
+        let postId = $(this).data('id');
+
+        Swal.fire({
+            title: 'Delete Post',
+            text: "Are you sure you want to this Post?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    url: "../controller/delete-post.php",
+                    method: "POST",
+                    data: { "postId": postId },
+                    success: function (res) {
+                        if (res == "success") {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: 'Post Deleted Successfully.',
+                                onClose: function () {
+                                    window.location.reload();
+                                }
+                            });
+                        } else {
+                            Toast.fire({
+                                icon: 'error',
+                                title: 'An error occured.'
+                            })
+                        }
+                    }
+                })
+            }
+        })
     });
 });

@@ -7,7 +7,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto" id="categories">
                 <?php
                 $categoryContr = new CategoryController();
                 $categories = $categoryContr->showCategories();
@@ -27,7 +27,7 @@
                         <i class="fas fa-search"></i></button>
                 </div>
             </form>
-            <ul class="navbar-nav ml-3">
+            <ul class="navbar-nav ml-3" id="login">
                 <li class="nav-item">
                     <a class=" nav-link" href="views/auth/login.php">Login</a>
                 </li>

@@ -44,7 +44,11 @@ if (isset($_POST['postTitle'])) {
 
                 if ($image) {
                     $postContr->savePost($post_author, $postCategory, $postTitle, $slug, $imageName, $post_content, $dateAdded);
-                    echo 'success';
+                    if ($_SESSION['role'] === 'Admin') {
+                        echo 'admin';
+                    } else {
+                        echo 'author';
+                    }
                 } else {
                     echo 'Something went wrong';
                 }

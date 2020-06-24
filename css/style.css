@@ -11715,6 +11715,23 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Free';
   font-weight: 400; }
 
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
 body {
   background-color: #eef0f1; }
 
@@ -11732,6 +11749,9 @@ header {
   header .navbar {
     padding: 1rem 1rem 1rem 3rem;
     background-color: transparent; }
+    @media only screen and (max-width: 37.5em) {
+      header .navbar {
+        padding: 1rem; } }
     header .navbar form .searchbar {
       position: relative;
       height: 40px;
@@ -11781,8 +11801,49 @@ header {
       header .navbar ul li a.active {
         border-bottom: 2px solid #262626; }
 
+@media only screen and (max-width: 600px) and (max-width: 37.5em) {
+  .navbar-collapse {
+    display: flex;
+    flex-flow: column;
+    padding: 0 3rem; } }
+
+@media only screen and (max-width: 600px) and (max-width: 37.5em) {
+  .navbar-collapse #categories {
+    order: 1 !important; } }
+
+@media only screen and (max-width: 600px) and (max-width: 37.5em) {
+  .navbar-collapse #login {
+    order: 2 !important;
+    margin-right: auto;
+    margin-left: 0 !important; } }
+
+@media only screen and (max-width: 600px) {
+  .navbar-collapse #searchForm {
+    width: 100%; } }
+  @media only screen and (max-width: 600px) and (max-width: 37.5em) {
+    .navbar-collapse #searchForm {
+      order: 3 !important;
+      margin-right: auto;
+      margin-left: 0 !important;
+      position: relative; } }
+  @media only screen and (max-width: 600px) and (max-width: 37.5em) {
+    .navbar-collapse #searchForm .searchbar {
+      position: relative;
+      width: 100%; } }
+  @media only screen and (max-width: 600px) and (max-width: 37.5em) {
+    .navbar-collapse #searchForm .searchbar .search_input {
+      position: absolute;
+      left: 0;
+      width: 100%; } }
+  @media only screen and (max-width: 600px) and (max-width: 37.5em) {
+    .navbar-collapse #searchForm .searchbar .search_icon {
+      position: absolute;
+      top: 0;
+      right: 0; } }
+
 .section-main {
-  margin-top: 76px; }
+  margin-top: 76px;
+  overflow-x: hidden; }
 
 .card {
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
@@ -11871,11 +11932,21 @@ header {
   height: 90vh;
   border-radius: 0 !important;
   border-right: 2px solid white; }
+  @media only screen and (max-width: 37.5em) {
+    .card-left {
+      height: 50vh;
+      border: none; } }
   .card-left .img-left {
     object-fit: cover;
     max-width: 100%;
     height: 100%;
     border: 1px solid white; }
+    @media only screen and (max-width: 37.5em) {
+      .card-left .img-left {
+        border: none;
+        height: 100%;
+        width: 100%;
+        object-fit: cover; } }
   .card-left .description {
     position: absolute;
     bottom: 0;
@@ -11885,6 +11956,11 @@ header {
     width: 100%;
     text-align: center;
     word-wrap: none; }
+    @media only screen and (max-width: 37.5em) {
+      .card-left .description {
+        padding: 10px 50px;
+        width: 100%;
+        word-wrap: none; } }
     .card-left .description a {
       font-size: 1.2rem;
       color: #fff;
@@ -11893,17 +11969,18 @@ header {
       font-weight: 400; }
       .card-left .description a:hover {
         text-decoration: underline; }
+      @media only screen and (max-width: 37.5em) {
+        .card-left .description a {
+          font-size: 1rem;
+          line-height: 1.4; } }
 
 .card-right {
   overflow: hidden;
   border-radius: 0 !important;
   border-left: 1px solid white; }
-  @media screen and (max-width: 320px) {
+  @media only screen and (max-width: 37.5em) {
     .card-right {
-      height: 100vh; } }
-  @media screen and (max-width: 425px) {
-    .card-right {
-      height: 100vh; } }
+      border: none; } }
   .card-right .img-right {
     height: 45vh;
     min-height: 100%;
@@ -11916,6 +11993,11 @@ header {
     padding: 10px 14px;
     background: rgba(0, 0, 0, 0.74);
     width: 100%; }
+    @media only screen and (max-width: 37.5em) {
+      .card-right .description {
+        padding: 10px 50px;
+        width: 100%;
+        word-wrap: none; } }
     .card-right .description a {
       font-size: 1.2rem;
       color: #fff;
@@ -11924,13 +12006,40 @@ header {
       font-weight: 400; }
       .card-right .description a:hover {
         text-decoration: underline; }
+      @media only screen and (max-width: 37.5em) {
+        .card-right .description a {
+          font-size: 1rem;
+          line-height: 1.4; } }
 
 .section-stories {
   margin: 4rem 0 8rem 0;
   padding-left: 5%;
   padding-right: 5%; }
+  @media only screen and (max-width: 37.5em) {
+    .section-stories {
+      padding: 0;
+      margin: 4rem 0; } }
   .section-stories .stories-panel {
-    border: 1px solid #D4D4D4; }
+    border: 1px solid #D4D4D4;
+    background: #fff; }
+    .section-stories .stories-panel .stories-title {
+      margin-top: 1rem;
+      background-color: #2f2f2f;
+      padding: 1rem 0;
+      border-radius: 2px; }
+      .section-stories .stories-panel .stories-title h2 {
+        background: transparent;
+        color: #fff;
+        text-align: center;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 400;
+        padding: 0;
+        margin: 0; }
+        @media only screen and (max-width: 37.5em) {
+          .section-stories .stories-panel .stories-title h2 {
+            font-size: 1.2rem; } }
     .section-stories .stories-panel .feature-post {
       border-right: 1px solid #EBEBEB;
       border-bottom: 1px solid #EBEBEB;
@@ -11942,13 +12051,22 @@ header {
         padding: 37px 0 3px; }
         .section-stories .stories-panel .feature-post .stories-desc a {
           font-size: 1.1rem;
-          line-height: 24px;
+          line-height: 1.6;
           color: #2f2f2f; }
+          @media only screen and (max-width: 37.5em) {
+            .section-stories .stories-panel .feature-post .stories-desc a {
+              font-size: 1rem;
+              line-height: 1.4; } }
   .section-stories .categories-panel {
     border: 1px solid #D4D4D4;
     margin-left: 15px;
     background-color: #fff; }
+    @media only screen and (max-width: 37.5em) {
+      .section-stories .categories-panel {
+        margin-left: 0; } }
     .section-stories .categories-panel .panel-title {
+      margin: 1rem;
+      border-radius: 2px;
       background-color: #2f2f2f;
       padding: 1rem 0; }
       .section-stories .categories-panel .panel-title h2 {
@@ -11957,7 +12075,12 @@ header {
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 400;
-        color: #fff; }
+        color: #fff;
+        padding: 0;
+        margin: 0; }
+        @media only screen and (max-width: 37.5em) {
+          .section-stories .categories-panel .panel-title h2 {
+            font-size: 1.2rem; } }
     .section-stories .categories-panel .categories {
       padding: 0 10px; }
       .section-stories .categories-panel .categories ul li a {
@@ -12516,6 +12639,10 @@ header {
       font-size: 3rem;
       line-height: 1.2;
       color: #fff; }
+      @media only screen and (max-width: 37.5em) {
+        .page-header .header-description h1 {
+          font-size: 1.5rem;
+          line-height: 1.1; } }
     .page-header .header-description .post-category a {
       color: #ee4266;
       font-weight: 700;
@@ -12550,14 +12677,27 @@ header {
 
 .post-content {
   margin: 4rem 0; }
+  @media only screen and (max-width: 37.5em) {
+    .post-content {
+      margin: 2rem 0; } }
   .post-content .post-body {
     padding: 0 4.5rem;
     color: #262626; }
+    @media only screen and (max-width: 37.5em) {
+      .post-content .post-body {
+        padding: 0 2rem; } }
     .post-content .post-body p {
       color: #262626;
       font-size: 1.1rem;
       line-height: 1.6;
       text-align: justify; }
+      @media only screen and (max-width: 37.5em) {
+        .post-content .post-body p {
+          font-size: 1rem;
+          text-align: left; } }
+    @media only screen and (max-width: 37.5em) {
+      .post-content .post-body h1, .post-content .post-body h2, .post-content .post-body h3 {
+        font-size: 1.2rem; } }
 
 .page-category {
   margin-top: 76px;
@@ -12575,3 +12715,9 @@ header {
       font-weight: 700;
       color: #ffffff;
       letter-spacing: 1px; }
+      @media only screen and (max-width: 37.5em) {
+        .page-category .category-description > h1 {
+          font-size: 1.5rem; } }
+
+.result-bx h1 {
+  font-size: 1.2rem; }

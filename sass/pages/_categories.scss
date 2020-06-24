@@ -16,6 +16,14 @@
             font-weight: 700;
             color: #ffffff;
             letter-spacing: 1px;
+
+            @include respond(phone) {
+                font-size: 1.5rem;
+            }
         }
     } 
 } 
+
+.result-bx h1{
+    font-size: 1.2rem;
+}

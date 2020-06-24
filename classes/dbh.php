@@ -1,11 +1,10 @@
 <?php
 class Dbh
 {
-    private $host = "";
-    private $user = "";
+    private $host = "localhost";
+    private $user = "root";
     private $pwd = "";
     private $dbName = "";
-
 
 
     protected function connect()

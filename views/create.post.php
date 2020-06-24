@@ -33,7 +33,12 @@ include "partials/header.php";
                                 <div class="card-form-title card-icon">
                                     <h4>Add Post</h4>
                                 </div>
-                                <a href="posts.php" class="btn btn-right float-right">Back to posts</a>
+                                <a href="
+                                <?php
+                                $href = $_SESSION['role'] === 'Admin' ? 'posts.php' : 'index.php';
+                                echo $href;
+                                ?>
+                                " class="btn btn-right float-right">Back to Posts</a>
                             </div>
                             <div class="card-body">
                                 <form class="form-horizontal needs-validation" enctype="multipart/form-data"
@@ -84,7 +89,7 @@ include "partials/header.php";
                                             <div class="picture-container">
                                                 <div class="picture-wrapper">
                                                     <div class="image">
-                                                        <img src alt="">
+                                                        <img src alt="" class="img">
                                                     </div>
                                                     <div class="content">
                                                         <div class="icon">

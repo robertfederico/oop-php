@@ -19,25 +19,30 @@ header {
         padding: 1rem 1rem 1rem 3rem; 
         background-color: transparent;
 
+        @include respond(phone) {
+            padding: 1rem; 
+        }
+
         & form .searchbar {
             position: relative;
             height: 40px;
             background-color: #ffffff;
 
-            & .search_input{
+            & .search_input {
                 color: #262626;
                 border: 0;
                 outline: 0;
                 background: transparent;
                 width: 0;
                 padding: 0 18px;
-                height: 40px;
+                height: 40px; 
                 border-radius: 5px;
                 position: absolute;
                 right: 0;
                 width: 420px; 
                 border: 1px solid #b5bdc4;
 
+           
                 &:focus {
                     border: 1px solid #262626;
                 }
@@ -84,4 +89,62 @@ header {
         }
     }
 }
+
+@media only screen and (max-width: 600px){
+    & .navbar-collapse {
+        @include respond(phone) {
+            display:flex;
+            flex-flow: column;
+            padding: 0 3rem;
+        }
+      
+        & #categories {
+            @include respond(phone) {
+                order: 1 !important;
+            }
+        }
+
+        & #login {
+            @include respond(phone) {
+                order: 2 !important;
+                margin-right: auto;
+                margin-left: 0 !important;
+            }
+        }
+
+        & #searchForm {
+            width: 100%;
+
+            @include respond(phone) {
+                order: 3 !important;
+                margin-right: auto;
+                margin-left: 0 !important;
+                position: relative;
+            }
+
+            & .searchbar{
+                @include respond(phone) {
+                    position: relative; 
+                    width: 100%;
+                }
+
+                & .search_input {
+                    @include respond(phone) {
+                        position: absolute;
+                        left: 0;
+                        width: 100%;
+                    }
+                }
+                & .search_icon {
+                    @include respond(phone) {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
 

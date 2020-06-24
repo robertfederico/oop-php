@@ -47,7 +47,7 @@ foreach ($posts as $k => $post) {
                             >
                         <i class="fas fa-edit"></i> 
                     </button>
-                    <a href="#" class="btn btn-view btn-sm" target="blank" id="editPost">
+                    <a href="#" class="btn btn-view btn-sm" target="blank">
                         <i class="fas fa-eye"></i>
                     </a>
                 </td>';

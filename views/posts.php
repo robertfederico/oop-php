@@ -120,7 +120,7 @@ include "partials/header.php";
                                 <div class="picture-container">
                                     <div class="picture-wrapper">
                                         <div class="image">
-                                            <img src alt="" id="image">
+                                            <img src alt="" id="image" class="img">
                                         </div>
                                         <div class="content">
                                             <div class="icon">
