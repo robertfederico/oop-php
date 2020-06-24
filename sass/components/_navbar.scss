@@ -1,10 +1,12 @@
 body {
     background-color: #eef0f1;
 }
+
 #main-content {
     margin-top: 76px;
     padding: 0;
     margin: 0;
+
 }
 header {
     position: fixed; 
@@ -26,16 +28,23 @@ header {
                 color: #262626;
                 border: 0;
                 outline: 0;
-                background: none;
+                background: transparent;
                 width: 0;
                 padding: 0 18px;
                 height: 40px;
-                transition: all 0.4s linear;
                 border-radius: 5px;
                 position: absolute;
                 right: 0;
                 width: 420px; 
                 border: 1px solid #b5bdc4;
+
+                &:focus {
+                    border: 1px solid #262626;
+                }
+
+                &:focus + .search_icon { 
+                    color: #262626;
+                }
             } 
 
             & .search_icon {
@@ -45,13 +54,15 @@ header {
                 justify-content: center;
                 align-items: center;
                 border-radius: 50%;
+                border: none;
+                outline: none;
                 color:#b5bdc4;
-                text-decoration:none;
+                background: transparent;
+                text-decoration:none; 
                 position: absolute;
                 top: 0;
                 right: 0;
             }
-            
         }
         
         & ul li a {

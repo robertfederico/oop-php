@@ -18,18 +18,16 @@ $(document).ready(function () {
     $("#sidebar-links a").each(function () {
         if ($(this).attr("href") == pgurl || $(this).attr("href") == '')
             $(this).addClass("active");
-    })
-
-    $('#search').click(function () {
-        $('.nav-link').addClass('hide-item');
-        $('.search-form').addClass('active');
-        $('.close').addClass('active');
-        $('#search').hide();
     });
-    $('.close').click(function () {
-        $('.nav-link').removeClass('hide-item');
-        $('.search-form').removeClass('active');
-        $('.close').removeClass('active');
-        $('#search').show();
+
+    $('#searchForm').on('submit', function (e) {
+        e.preventDefault();
+        let searchQuery = $('#searchValue').val().trim();
+        if (searchQuery == "") {
+            alert('Please write something to search');
+            $('#searchValue').focus();
+        } else {
+            window.location.replace(`index.php?source=search&query=${searchQuery}`);
+        }
     });
 });

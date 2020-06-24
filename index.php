@@ -29,6 +29,9 @@ include "./autoloader/autoloader.php";
             case "categories":
                 include "./views/frontend/categories.php";
                 break;
+            case "search":
+                include "./views/frontend/search.php";
+                break;
             default:
                 include "./views/frontend/main.php";
                 break;
