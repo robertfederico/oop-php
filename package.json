@@ -14,7 +14,7 @@
     "bootstrap": "^4.5.0",
     "datatables.net-bs4": "^1.10.21",
     "jquery": "^3.5.1",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "popper.js": "^1.16.1",
     "sweetalert2": "^9.15.1"
   },
